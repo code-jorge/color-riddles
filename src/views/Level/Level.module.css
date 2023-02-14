@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  max-width: 1000px;
   /* View transition API - experimental */
   view-transition-name: level;
   contain: layout;
