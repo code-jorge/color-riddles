@@ -1,0 +1,67 @@
+/* Transition API - experimental */ 
+
+.fade {
+  --out-duration: .3s;
+  --in-duration: .3s;
+  --in-delay: .3s;
+}
+
+.fade::view-transition-old(header),
+.fade::view-transition-new(header) {
+  animation: none;
+  mix-blend-mode: color;
+}
+
+.fade::view-transition-old(instructions) {
+  animation: slide-out-right var(--out-duration) cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.fade::view-transition-new(instructions) {
+  animation: slide-in-left var(--in-duration) cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation-delay: var(--in-delay);
+}
+
+.fade::view-transition-old(words) {
+  animation: slide-out-right var(--out-duration) cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.fade::view-transition-new(words) {
+  animation: slide-in-left var(--in-duration) cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation-delay: var(--in-delay);
+}
+
+.fade::view-transition-group(buttons) {
+  animation-delay: var(--in-delay);
+  animation-duration: 0s;
+}
+
+.fade::view-transition-old(buttons) {
+  animation: slide-out-right var(--out-duration) cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.fade::view-transition-new(buttons) {
+  animation: slide-in-left var(--in-duration) cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation-delay: var(--in-delay);
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out-right {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+}

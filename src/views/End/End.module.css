@@ -1,0 +1,149 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+  color: var(--color-white);
+  text-align: center;
+  user-select: none;
+}
+
+.intro {
+  color: var(--color-white);
+  font-size: 1.2rem;
+  max-width: 600px;
+  line-height: 1.95rem;
+  margin: 2rem auto 2rem;
+  text-align: center;
+}
+
+.table {
+  width: 300px;
+  max-width: 100%;
+  margin: 0 auto;
+  user-select: none;
+  color: var(--color-white);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.levelCell {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 5px;
+}
+
+.scoreCell {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 5px;
+}
+
+.emoji {
+  margin-right: 10px;
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.ball[data-status="correct"] {
+  background-color: var(--color-green);
+}
+
+.ball[data-status="incorrect"] {
+  background-color: var(--color-red);
+}
+
+.copy {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  margin: 2rem auto .75rem;
+  border: 1px solid var(--color-white);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  transition: background .3s, color .3s;
+}
+
+.copy:hover {
+  background-color: var(--color-white);
+  color: var(--color-main);
+  box-shadow: 0px 5px 10px var(--color-white);
+}
+
+.copy:active {
+  box-shadow: none;
+}
+
+.share {
+  margin-right: .8rem;
+  fill: var(--color-white);
+  width: 1.9rem;
+  transition: all .5s;
+}
+
+.copy:hover .share {
+  fill: var(--color-main);
+}
+
+.copied {
+  color: var(--color-white);
+  font-size: .75rem;
+  margin: 0;
+  text-align: center;
+}
+
+.home {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  margin: 2rem auto .75rem;
+  border: 1px solid var(--color-white);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  transition: background .3s, color .3s;
+}
+
+.home:hover {
+  background-color: var(--color-white);
+  color: var(--color-main);
+  box-shadow: 0px 5px 10px var(--color-white);
+}
+
+.home:active {
+  box-shadow: none;
+}
+
+.house {
+  margin-right: .8rem;
+  fill: var(--color-white);
+  width: 1.55rem;
+  transition: all .5s;
+}
+
+.home:hover .house {
+  fill: var(--color-main);
+}

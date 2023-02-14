@@ -1,0 +1,133 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+  color: var(--color-white);
+  text-align: center;
+  user-select: none;
+}
+
+.titleLetter:nth-of-type(1) {
+  color: var(--color-red);
+}
+
+.titleLetter:nth-of-type(2) {
+  color: var(--color-orange);
+}
+
+.titleLetter:nth-of-type(3) {
+  color: var(--color-yellow);
+}
+
+.titleLetter:nth-of-type(4) {
+  color: var(--color-green);
+}
+
+.titleLetter:nth-of-type(5) {
+  color: var(--color-blue);
+}
+
+.titleLetter:nth-of-type(6) {
+  color: var(--color-purple);
+}
+
+.titleLetter:nth-of-type(7) {
+  color: var(--color-pink);
+}
+
+.titleLetter:nth-of-type(8) {
+  color: var(--color-brown);
+}
+
+.intro {
+  color: var(--color-white);
+  font-size: 1.2rem;
+  max-width: 600px;
+  line-height: 1.95rem;
+  margin: 2rem auto 1rem;
+}
+
+.guide {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 48rem;
+  justify-content: center;
+}
+
+.guideColor {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 8rem;
+  height: 8rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 1rem;
+  user-select: none;
+}
+
+.colorName {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1.2rem;
+  font-weight: 900;
+  margin: 0;
+  padding: 4px;
+  transition: color .2s ease-in-out;
+}
+
+.buttons {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.startButton {
+  background-color: transparent;
+  border: 2px solid var(--color-white);
+  border-radius: 14px;
+  color: var(--color-white);
+  font-size: 2rem;
+  padding: 2rem 4rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.startButton:first-of-type {
+  margin-bottom: 3.5rem;
+}
+
+.startButton:hover {
+  background-color: var(--color-white);
+  color: var(--color-main);
+  box-shadow: 0px 5px 10px var(--color-white);
+}
+
+.startButton:active {
+  box-shadow: none;
+}
+
+@media(max-width: 700px) {
+  .guideColor {
+    flex-basis: calc(50% - 2rem);
+  }
+  .startButton {
+    padding: 1.5rem 3rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media(max-width: 400px) {
+  .guideColor {
+    height: 3rem;
+    flex-basis: calc(100% - 2rem);
+    margin: .2rem;
+  }
+}

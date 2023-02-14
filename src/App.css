@@ -1,38 +1,63 @@
-.App {
-  text-align: center;
+[data-color="red"] {
+  color: var(--color-red);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+[data-color="orange"] {
+  color: var(--color-orange);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+[data-color="yellow"] {
+  color: var(--color-yellow);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+[data-color="green"] {
+  color: var(--color-green);
 }
 
-.App-link {
-  color: #61dafb;
+[data-color="blue"] {
+  color: var(--color-blue);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+[data-color="purple"] {
+  color: var(--color-purple);
+}
+
+[data-color="pink"] {
+  color: var(--color-pink);
+}
+
+[data-color="brown"] {
+  color: var(--color-brown);
+}
+
+[data-bg="red"] {
+  background-color: var(--color-red);
+}
+
+[data-bg="orange"] {
+  background-color: var(--color-orange);
+}
+
+[data-bg="yellow"] {
+  background-color: var(--color-yellow);
+}
+
+[data-bg="green"] {
+  background-color: var(--color-green);
+}
+
+[data-bg="blue"] {
+  background-color: var(--color-blue);
+}
+
+[data-bg="purple"] {
+  background-color: var(--color-purple);
+}
+
+[data-bg="pink"] {
+  background-color: var(--color-pink);
+}
+
+[data-bg="brown"] {
+  background-color: var(--color-brown);
 }
