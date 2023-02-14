@@ -1,9 +1,9 @@
 /* Transition API - experimental */ 
 
 .fade {
-  --out-duration: .3s;
-  --in-duration: .3s;
-  --in-delay: .3s;
+  --out-duration: .4s;
+  --in-duration: .4s;
+  --in-delay: .1s;
 }
 
 .fade::view-transition-old(header),
@@ -12,34 +12,11 @@
   mix-blend-mode: color;
 }
 
-.fade::view-transition-old(instructions) {
+.fade::view-transition-old(level) {
   animation: slide-out-right var(--out-duration) cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
 
-.fade::view-transition-new(instructions) {
-  animation: slide-in-left var(--in-duration) cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation-delay: var(--in-delay);
-}
-
-.fade::view-transition-old(words) {
-  animation: slide-out-right var(--out-duration) cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-}
-
-.fade::view-transition-new(words) {
-  animation: slide-in-left var(--in-duration) cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation-delay: var(--in-delay);
-}
-
-.fade::view-transition-group(buttons) {
-  animation-delay: var(--in-delay);
-  animation-duration: 0s;
-}
-
-.fade::view-transition-old(buttons) {
-  animation: slide-out-right var(--out-duration) cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-}
-
-.fade::view-transition-new(buttons) {
+.fade::view-transition-new(level) {
   animation: slide-in-left var(--in-duration) cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   animation-delay: var(--in-delay);
 }
