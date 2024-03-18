@@ -1,0 +1,26 @@
+{
+  "default": {
+    "prefix": "The",
+    "title": "colorful",
+    "suffix": "game",
+    "subtitle": "A game designed to mess with your head",
+    "practice": "Practice",
+    "game": "Quick game"
+  },
+  "en": {
+    "prefix": "The",
+    "title": "colorful",
+    "suffix": "game",
+    "subtitle": "A game designed to mess with your head",
+    "practice": "Practice",
+    "game": "Quick game"
+  },
+  "es": {
+    "prefix": "",
+    "title": "colorful",
+    "suffix": "- el juego",
+    "subtitle": "Un juego diseñado para retar a tu mente",
+    "practice": "Practicar",
+    "game": "Juego rápido"
+  }
+}

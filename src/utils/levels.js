@@ -9,12 +9,33 @@ export const COLORS = [
   'brown',
 ]
 
+const COLOR_MAP_ES = {
+  red: 'rojo',
+  orange: 'naranja',
+  yellow: 'amarillo',
+  green: 'verde',
+  blue: 'azul',
+  purple: 'morado',
+  pink: 'rosa',
+  brown: 'marrón',
+}
+
 export const PRACTICE_LEVELS = 30
 export const QUICK_GAME_LEVELS = 8
 
+
+export const getColors = ()=> COLORS.map((color)=> ({ 
+  label: {
+    default: color,
+    en: color,
+    es: COLOR_MAP_ES[color],
+  },
+  color 
+}))
+
 // Pick a random group of non-repeating colors
 const pickColors = (number)=> {
-  const colors = [...COLORS]
+  const colors = getColors()
   const picked = []
   for (let i = 0; i < number; i++) {
     const randomIndex = Math.floor(Math.random() * colors.length)
@@ -42,14 +63,22 @@ const getPracticeLevelData = (level) => {
     return {
       level: 1,
       words: randomizeOrder([
-        { label: colors[0], color: colors[1] },
-        { label: colors[2], color: colors[3] },
+        { label: colors[0].label, color: colors[1].color },
+        { label: colors[2].label, color: colors[3].color },
       ]),
-      question: 'Select the **visible** color',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the **visible** color',
+        en: 'Select the **visible** color',
+        es: 'Elige el color **visible**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[1], isCorrect: true },
-        { label: colors[4], isCorrect: false },
+        { label: colors[1].label, isCorrect: true },
+        { label: colors[4].label, isCorrect: false },
       ])
     }
   }
@@ -58,14 +87,22 @@ const getPracticeLevelData = (level) => {
     return {
       level: 2,
       words: randomizeOrder([
-        { label: colors[0], color: colors[0] },
-        { label: colors[1], color: colors[2] },
+        { label: colors[0].label, color: colors[0].color },
+        { label: colors[1].label, color: colors[2].color },
       ]),
-      question: 'Select the **visible** color',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the **visible** color',
+        en: 'Select the **visible** color',
+        es: 'Elige el color **visible**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[3], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[3].label, isCorrect: false },
       ])
     }
   }
@@ -74,15 +111,23 @@ const getPracticeLevelData = (level) => {
     return {
       level: 3,
       words: randomizeOrder([
-        { label: colors[0], color: colors[1] },
-        { label: colors[2], color: colors[3] },
-        { label: colors[4], color: colors[5] },
+        { label: colors[0].label, color: colors[1].color },
+        { label: colors[2].label, color: colors[3].color },
+        { label: colors[4].label, color: colors[5].color },
       ]),
-      question: 'Select the **visible** color',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the **visible** color',
+        en: 'Select the **visible** color',
+        es: 'Elige el color **visible**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[1], isCorrect: true },
-        { label: colors[6], isCorrect: false },
+        { label: colors[1].label, isCorrect: true },
+        { label: colors[6].label, isCorrect: false },
       ])
     }
   }
@@ -92,14 +137,22 @@ const getPracticeLevelData = (level) => {
     return {
       level: 4,
       words: randomizeOrder([
-        { label: colors[0], color: colors[1] },
-        { label: colors[2], color: colors[3] },
+        { label: colors[0].label, color: colors[1].color },
+        { label: colors[2].label, color: colors[3].color },
       ]),
-      question: 'Select the color that is **not visible**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that is **not visible**',
+        en: 'Select the color that is **not visible**',
+        es: 'Elige el color que **no aparece**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[4], isCorrect: true },
-        { label: colors[1], isCorrect: false },
+        { label: colors[4].label, isCorrect: true },
+        { label: colors[1].label, isCorrect: false },
       ])
     }
   }
@@ -108,14 +161,22 @@ const getPracticeLevelData = (level) => {
     return {
       level: 5,
       words: randomizeOrder([
-        { label: colors[0], color: colors[1] },
-        { label: colors[1], color: colors[2] },
+        { label: colors[0].label, color: colors[1].color },
+        { label: colors[1].label, color: colors[2].color },
       ]),
-      question: 'Select the color that is **not visible**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that is **not visible**',
+        en: 'Select the color that is **not visible**',
+        es: 'Elige el color que **no aparece**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[1], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[1].label, isCorrect: false },
       ])
     }
   }
@@ -124,15 +185,23 @@ const getPracticeLevelData = (level) => {
     return {
       level: 6,
       words: randomizeOrder([
-        { label: colors[2], color: colors[0] },
-        { label: colors[4], color: colors[1] },
-        { label: colors[5], color: colors[2] },
+        { label: colors[2].label, color: colors[0].color },
+        { label: colors[4].label, color: colors[1].color },
+        { label: colors[5].label, color: colors[2].color },
       ]),
-      question: 'Select the color that is **not visible**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that is **not visible**',
+        en: 'Select the color that is **not visible**',
+        es: 'Elige el color que **no aparece**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[3], isCorrect: true },
-        { label: colors[0], isCorrect: false },
+        { label: colors[3].label, isCorrect: true },
+        { label: colors[0].label, isCorrect: false },
       ])
     }
   }
@@ -142,15 +211,23 @@ const getPracticeLevelData = (level) => {
     return {
       level: 7,
       words: randomizeOrder([
-        { label: colors[2], color: colors[0] },
-        { label: colors[3], color: colors[1] },
+        { label: colors[2].label, color: colors[0].color },
+        { label: colors[3].label, color: colors[1].color },
       ]),
-      question: 'Select the **visible** color',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the **visible** color',
+        en: 'Select the **visible** color',
+        es: 'Elige el color **visible**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[4], isCorrect: false },
-        { label: colors[5], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[4].label, isCorrect: false },
+        { label: colors[5].label, isCorrect: false },
       ])
     }
   }
@@ -159,16 +236,24 @@ const getPracticeLevelData = (level) => {
     return {
       level: 8,
       words: randomizeOrder([
-        { label: colors[2], color: colors[0] },
-        { label: colors[3], color: colors[1] },
-        { label: colors[4], color: colors[2] },
+        { label: colors[2].label, color: colors[0].color },
+        { label: colors[3].label, color: colors[1].color },
+        { label: colors[4].label, color: colors[2].color },
       ]),
-      question: 'Select the **visible** color',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the **visible** color',
+        en: 'Select the **visible** color',
+        es: 'Elige el color **visible**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[3], isCorrect: false },
-        { label: colors[5], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[3].label, isCorrect: false },
+        { label: colors[5].label, isCorrect: false },
       ])
     }
   }
@@ -177,16 +262,24 @@ const getPracticeLevelData = (level) => {
     return {
       level: 9,
       words: randomizeOrder([
-        { label: colors[1], color: colors[0] },
-        { label: colors[2], color: colors[1] },
-        { label: colors[0], color: colors[2] },
+        { label: colors[1].label, color: colors[0].color },
+        { label: colors[2].label, color: colors[1].color },
+        { label: colors[0].label, color: colors[2].color },
       ]),
-      question: 'Select the **visible** color',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the **visible** color',
+        en: 'Select the **visible** color',
+        es: 'Elige el color **visible**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[3], isCorrect: false },
-        { label: colors[4], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[3].label, isCorrect: false },
+        { label: colors[4].label, isCorrect: false },
       ])
     }
   }
@@ -196,16 +289,24 @@ const getPracticeLevelData = (level) => {
     return {
       level: 10,
       words: randomizeOrder([
-        { label: colors[1], color: colors[0] },
-        { label: colors[2], color: colors[1] },
-        { label: colors[3], color: colors[2] },
-        { label: colors[0], color: colors[3] },
+        { label: colors[1].label, color: colors[0].color },
+        { label: colors[2].label, color: colors[1].color },
+        { label: colors[3].label, color: colors[2].color },
+        { label: colors[0].label, color: colors[3].color },
       ]),
-      question: 'Select the color that is **not visible**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that is **not visible**',
+        en: 'Select the color that is **not visible**',
+        es: 'Elige el color que **no aparece**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[4], isCorrect: true },
-        { label: colors[0], isCorrect: false },
+        { label: colors[4].label, isCorrect: true },
+        { label: colors[0].label, isCorrect: false },
       ])
     }
   }
@@ -214,16 +315,24 @@ const getPracticeLevelData = (level) => {
     return {
       level: 11,
       words: randomizeOrder([
-        { label: colors[4], color: colors[0] },
-        { label: colors[4], color: colors[1] },
-        { label: colors[4], color: colors[2] },
-        { label: colors[4], color: colors[3] },
+        { label: colors[4].label, color: colors[0].color },
+        { label: colors[4].label, color: colors[1].color },
+        { label: colors[4].label, color: colors[2].color },
+        { label: colors[4].label, color: colors[3].color },
       ]),
-      question: 'Select the color that is **not visible**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that is **not visible**',
+        en: 'Select the color that is **not visible**',
+        es: 'Elige el color que **no aparece**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[4], isCorrect: true },
-        { label: colors[0], isCorrect: false },
+        { label: colors[4].label, isCorrect: true },
+        { label: colors[0].label, isCorrect: false },
       ])
     }
   }
@@ -233,16 +342,24 @@ const getPracticeLevelData = (level) => {
     return {
       level: 12,
       words: randomizeOrder([
-        { label: colors[4], color: colors[0] },
-        { label: colors[1], color: colors[1] },
-        { label: colors[5], color: colors[2] },
-        { label: colors[6], color: colors[3] },
+        { label: colors[4].label, color: colors[0].color },
+        { label: colors[1].label, color: colors[1].color },
+        { label: colors[5].label, color: colors[2].color },
+        { label: colors[6].label, color: colors[3].color },
       ]),
-      question: 'Select the color that **matches its word**',
-      hint: 'Focus on the colors and the words!',
+      question: {
+        default: 'Select the color that **matches its word**',
+        en: 'Select the color that **matches its word**',
+        es: 'Elige la palabra que **coincide** con su color',
+      },
+      hint: {
+        default: 'Focus on the colors and the words!',
+        en: 'Focus on the colors and the words!',
+        es: '¡Tienes que fijarte en los colores y las palabras!',
+      },
       options: randomizeOrder([
-        { label: colors[1], isCorrect: true },
-        { label: colors[7], isCorrect: false },
+        { label: colors[1].label, isCorrect: true },
+        { label: colors[7].label, isCorrect: false },
       ])
     }
   }
@@ -251,16 +368,24 @@ const getPracticeLevelData = (level) => {
     return {
       level: 13,
       words: randomizeOrder([
-        { label: colors[2], color: colors[0] },
-        { label: colors[1], color: colors[1] },
-        { label: colors[3], color: colors[2] },
-        { label: colors[4], color: colors[3] },
+        { label: colors[2].label, color: colors[0].color },
+        { label: colors[1].label, color: colors[1].color },
+        { label: colors[3].label, color: colors[2].color },
+        { label: colors[4].label, color: colors[3].color },
       ]),
-      question: 'Select the color that **matches its word**',
-      hint: 'Focus on the colors and the words!',
+      question: {
+        default: 'Select the color that **matches its word**',
+        en: 'Select the color that **matches its word**',
+        es: 'Elige la palabra que **coincide** con su color',
+      },
+      hint: {
+        default: 'Focus on the colors and the words!',
+        en: 'Focus on the colors and the words!',
+        es: '¡Tienes que fijarte en los colores y las palabras!',
+      },
       options: randomizeOrder([
-        { label: colors[1], isCorrect: true },
-        { label: colors[4], isCorrect: false },
+        { label: colors[1].label, isCorrect: true },
+        { label: colors[4].label, isCorrect: false },
       ])
     }
   }
@@ -269,16 +394,24 @@ const getPracticeLevelData = (level) => {
     return {
       level: 14,
       words: randomizeOrder([
-        { label: colors[2], color: colors[0] },
-        { label: colors[1], color: colors[1] },
-        { label: colors[3], color: colors[2] },
-        { label: colors[0], color: colors[3] },
+        { label: colors[2].label, color: colors[0].color },
+        { label: colors[1].label, color: colors[1].color },
+        { label: colors[3].label, color: colors[2].color },
+        { label: colors[0].label, color: colors[3].color },
       ]),
-      question: 'Select the color that **matches its word**',
-      hint: 'Focus on the colors and the words!',
+      question: {
+        default: 'Select the color that **matches its word**',
+        en: 'Select the color that **matches its word**',
+        es: 'Elige la palabra que **coincide** con su color',
+      },
+      hint: {
+        default: 'Focus on the colors and the words!',
+        en: 'Focus on the colors and the words!',
+        es: '¡Tienes que fijarte en los colores y las palabras!',
+      },
       options: randomizeOrder([
-        { label: colors[1], isCorrect: true },
-        { label: colors[2], isCorrect: false },
+        { label: colors[1].label, isCorrect: true },
+        { label: colors[2].label, isCorrect: false },
       ])
     }
   }
@@ -288,17 +421,25 @@ const getPracticeLevelData = (level) => {
     return {
       level: 15,
       words: randomizeOrder([
-        { label: colors[0], color: colors[0] },
-        { label: colors[4], color: colors[1] },
-        { label: colors[5], color: colors[2] },
-        { label: colors[1], color: colors[3] },
+        { label: colors[0].label, color: colors[0].color },
+        { label: colors[4].label, color: colors[1].color },
+        { label: colors[5].label, color: colors[2].color },
+        { label: colors[1].label, color: colors[3].color },
       ]),
-      question: 'Select the color that **matches its word**',
-      hint: 'Focus on the colors and the words!',
+      question: {
+        default: 'Select the color that **matches its word**',
+        en: 'Select the color that **matches its word**',
+        es: 'Elige la palabra que **coincide** con su color',
+      },
+      hint: {
+        default: 'Focus on the colors and the words!',
+        en: 'Focus on the colors and the words!',
+        es: '¡Tienes que fijarte en los colores y las palabras!',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[4], isCorrect: false },
-        { label: colors[5], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[4].label, isCorrect: false },
+        { label: colors[5].label, isCorrect: false },
       ])
     }
   }
@@ -307,17 +448,25 @@ const getPracticeLevelData = (level) => {
     return {
       level: 16,
       words: randomizeOrder([
-        { label: colors[0], color: colors[0] },
-        { label: colors[2], color: colors[1] },
-        { label: colors[3], color: colors[2] },
-        { label: colors[1], color: colors[3] },
+        { label: colors[0].label, color: colors[0].color },
+        { label: colors[2].label, color: colors[1].color },
+        { label: colors[3].label, color: colors[2].color },
+        { label: colors[1].label, color: colors[3].color },
       ]),
-      question: 'Select the color that **matches its word**',
-      hint: 'Focus on the colors and the words!',
+      question: {
+        default: 'Select the color that **matches its word**',
+        en: 'Select the color that **matches its word**',
+        es: 'Elige la palabra que **coincide** con su color',
+      },
+      hint: {
+        default: 'Focus on the colors and the words!',
+        en: 'Focus on the colors and the words!',
+        es: '¡Tienes que fijarte en los colores y las palabras!',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[2], isCorrect: false },
-        { label: colors[3], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[2].label, isCorrect: false },
+        { label: colors[3].label, isCorrect: false },
       ])
     }
   }
@@ -327,18 +476,26 @@ const getPracticeLevelData = (level) => {
     return {
       level: 17,
       words: randomizeOrder([
-        { label: colors[1], color: colors[0] },
-        { label: colors[2], color: colors[1] },
-        { label: colors[3], color: colors[2] },
-        { label: colors[4], color: colors[3] },
-        { label: colors[0], color: colors[4] },
+        { label: colors[1].label, color: colors[0].color },
+        { label: colors[2].label, color: colors[1].color },
+        { label: colors[3].label, color: colors[2].color },
+        { label: colors[4].label, color: colors[3].color },
+        { label: colors[0].label, color: colors[4].color },
       ]),
-      question: 'Select the **visible** color',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the **visible** color',
+        en: 'Select the **visible** color',
+        es: 'Elige el color **visible**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[5], isCorrect: false },
-        { label: colors[6], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[5].label, isCorrect: false },
+        { label: colors[6].label, isCorrect: false },
       ])
     }
   }
@@ -347,18 +504,26 @@ const getPracticeLevelData = (level) => {
     return {
       level: 18,
       words: randomizeOrder([
-        { label: colors[1], color: colors[0] },
-        { label: colors[2], color: colors[1] },
-        { label: colors[3], color: colors[2] },
-        { label: colors[5], color: colors[3] },
-        { label: colors[6], color: colors[4] },
+        { label: colors[1].label, color: colors[0].color },
+        { label: colors[2].label, color: colors[1].color },
+        { label: colors[3].label, color: colors[2].color },
+        { label: colors[5].label, color: colors[3].color },
+        { label: colors[6].label, color: colors[4].color },
       ]),
-      question: 'Select the **visible** color',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the **visible** color',
+        en: 'Select the **visible** color',
+        es: 'Elige el color **visible**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[5], isCorrect: false },
-        { label: colors[6], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[5].label, isCorrect: false },
+        { label: colors[6].label, isCorrect: false },
       ])
     }
   }
@@ -368,17 +533,25 @@ const getPracticeLevelData = (level) => {
     return {
       level: 19,
       words: randomizeOrder([
-        { label: colors[4], color: colors[0] },
-        { label: colors[1], color: colors[1] },
-        { label: colors[2], color: colors[2] },
-        { label: colors[3], color: colors[3] },
+        { label: colors[4].label, color: colors[0].color },
+        { label: colors[1].label, color: colors[1].color },
+        { label: colors[2].label, color: colors[2].color },
+        { label: colors[3].label, color: colors[3].color },
       ]),
-      question: 'Select the color that is **not visible**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that is **not visible**',
+        en: 'Select the color that is **not visible**',
+        es: 'Elige el color que **no aparece**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[4], isCorrect: true },
-        { label: colors[0], isCorrect: false },
-        { label: colors[1], isCorrect: false },
+        { label: colors[4].label, isCorrect: true },
+        { label: colors[0].label, isCorrect: false },
+        { label: colors[1].label, isCorrect: false },
       ])
     }
   }
@@ -387,18 +560,26 @@ const getPracticeLevelData = (level) => {
     return {
       level: 20,
       words: randomizeOrder([
-        { label: colors[1], color: colors[0] },
-        { label: colors[2], color: colors[1] },
-        { label: colors[3], color: colors[2] },
-        { label: colors[4], color: colors[3] },
-        { label: colors[5], color: colors[4] },
+        { label: colors[1].label, color: colors[0].color },
+        { label: colors[2].label, color: colors[1].color },
+        { label: colors[3].label, color: colors[2].color },
+        { label: colors[4].label, color: colors[3].color },
+        { label: colors[5].label, color: colors[4].color },
       ]),
-      question: 'Select the color that is **not visible**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that is **not visible**',
+        en: 'Select the color that is **not visible**',
+        es: 'Elige el color que **no aparece**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[5], isCorrect: true },
-        { label: colors[0], isCorrect: false },
-        { label: colors[1], isCorrect: false },
+        { label: colors[5].label, isCorrect: true },
+        { label: colors[0].label, isCorrect: false },
+        { label: colors[1].label, isCorrect: false },
       ])
     }
   }
@@ -407,20 +588,28 @@ const getPracticeLevelData = (level) => {
     return {
       level: 21,
       words: randomizeOrder([
-        { label: colors[1], color: colors[0] },
-        { label: colors[2], color: colors[1] },
-        { label: colors[3], color: colors[2] },
-        { label: colors[4], color: colors[3] },
-        { label: colors[5], color: colors[4] },
-        { label: colors[6], color: colors[5] },
-        { label: colors[7], color: colors[6] },
-        { label: colors[0], color: colors[0] },
+        { label: colors[1].label, color: colors[0].color },
+        { label: colors[2].label, color: colors[1].color },
+        { label: colors[3].label, color: colors[2].color },
+        { label: colors[4].label, color: colors[3].color },
+        { label: colors[5].label, color: colors[4].color },
+        { label: colors[6].label, color: colors[5].color },
+        { label: colors[7].label, color: colors[6].color },
+        { label: colors[0].label, color: colors[0].color },
       ]),
-      question: 'Select the color that is **not visible**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that is **not visible**',
+        en: 'Select the color that is **not visible**',
+        es: 'Elige el color que **no aparece**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[7], isCorrect: true },
-        { label: colors[0], isCorrect: false },
+        { label: colors[7].label, isCorrect: true },
+        { label: colors[0].label, isCorrect: false },
       ])
     }
   }
@@ -430,19 +619,27 @@ const getPracticeLevelData = (level) => {
     return {
       level: 22,
       words: randomizeOrder([
-        { label: colors[0], color: colors[0] },
-        { label: colors[2], color: colors[1] },
-        { label: colors[3], color: colors[2] },
-        { label: colors[4], color: colors[3] },
-        { label: colors[5], color: colors[4] },
-        { label: colors[6], color: colors[5] },
+        { label: colors[0].label, color: colors[0].color },
+        { label: colors[2].label, color: colors[1].color },
+        { label: colors[3].label, color: colors[2].color },
+        { label: colors[4].label, color: colors[3].color },
+        { label: colors[5].label, color: colors[4].color },
+        { label: colors[6].label, color: colors[5].color },
       ]),
-      question: 'Select the color that **matches its word**',
-      hint: 'Focus on the colors and the words!',
+      question: {
+        default: 'Select the color that **matches its word**',
+        en: 'Select the color that **matches its word**',
+        es: 'Elige la palabra que **coincide** con su color',
+      },
+      hint: {
+        default: 'Focus on the colors and the words!',
+        en: 'Focus on the colors and the words!',
+        es: '¡Tienes que fijarte en los colores y las palabras!',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[2], isCorrect: false },
-        { label: colors[3], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[2].label, isCorrect: false },
+        { label: colors[3].label, isCorrect: false },
       ])
     }
   }
@@ -451,19 +648,27 @@ const getPracticeLevelData = (level) => {
     return {
       level: 23,
       words: randomizeOrder([
-        { label: colors[0], color: colors[0] },
-        { label: colors[0], color: colors[1] },
-        { label: colors[0], color: colors[2] },
-        { label: colors[1], color: colors[0] },
-        { label: colors[1], color: colors[2] },
-        { label: colors[1], color: colors[3] },
+        { label: colors[0].label, color: colors[0].color },
+        { label: colors[0].label, color: colors[1].color },
+        { label: colors[0].label, color: colors[2].color },
+        { label: colors[1].label, color: colors[0].color },
+        { label: colors[1].label, color: colors[2].color },
+        { label: colors[1].label, color: colors[3].color },
       ]),
-      question: 'Select the color that **matches its word**',
-      hint: 'Focus on the colors and the words!',
+      question: {
+        default: 'Select the color that **matches its word**',
+        en: 'Select the color that **matches its word**',
+        es: 'Elige la palabra que **coincide** con su color',
+      },
+      hint: {
+        default: 'Focus on the colors and the words!',
+        en: 'Focus on the colors and the words!',
+        es: '¡Tienes que fijarte en los colores y las palabras!',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[1], isCorrect: false },
-        { label: colors[2], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[1].label, isCorrect: false },
+        { label: colors[2].label, isCorrect: false },
       ])
     }
   }
@@ -473,19 +678,27 @@ const getPracticeLevelData = (level) => {
     return {
       level: 24,
       words: randomizeOrder([
-        { label: colors[0], color: colors[0] },
-        { label: colors[1], color: colors[1] },
-        { label: colors[2], color: colors[2] },
-        { label: colors[3], color: colors[3] },
-        { label: colors[4], color: colors[4] },
-        { label: colors[5], color: colors[0] },
+        { label: colors[0].label, color: colors[0].color },
+        { label: colors[1].label, color: colors[1].color },
+        { label: colors[2].label, color: colors[2].color },
+        { label: colors[3].label, color: colors[3].color },
+        { label: colors[4].label, color: colors[4].color },
+        { label: colors[5].label, color: colors[0].color },
       ]),
-      question: 'Select the color that **is repeated**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that **is repeated**',
+        en: 'Select the color that **is repeated**',
+        es: 'Elige el color que está **repetido**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[1], isCorrect: false },
-        { label: colors[2], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[1].label, isCorrect: false },
+        { label: colors[2].label, isCorrect: false },
       ])
     }
   }
@@ -494,19 +707,27 @@ const getPracticeLevelData = (level) => {
     return {
       level: 25,
       words: randomizeOrder([
-        { label: colors[0], color: colors[0] },
-        { label: colors[1], color: colors[1] },
-        { label: colors[1], color: colors[2] },
-        { label: colors[2], color: colors[3] },
-        { label: colors[2], color: colors[4] },
-        { label: colors[3], color: colors[0] },
+        { label: colors[0].label, color: colors[0].color },
+        { label: colors[1].label, color: colors[1].color },
+        { label: colors[1].label, color: colors[2].color },
+        { label: colors[2].label, color: colors[3].color },
+        { label: colors[2].label, color: colors[4].color },
+        { label: colors[3].label, color: colors[0].color },
       ]),
-      question: 'Select the color that **is repeated**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that **is repeated**',
+        en: 'Select the color that **is repeated**',
+        es: 'Elige el color que está **repetido**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[1], isCorrect: false },
-        { label: colors[2], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[1].label, isCorrect: false },
+        { label: colors[2].label, isCorrect: false },
       ])
     }
   }
@@ -515,19 +736,27 @@ const getPracticeLevelData = (level) => {
     return {
       level: 26,
       words: randomizeOrder([
-        { label: colors[1], color: colors[0] },
-        { label: colors[1], color: colors[1] },
-        { label: colors[1], color: colors[2] },
-        { label: colors[2], color: colors[3] },
-        { label: colors[2], color: colors[4] },
-        { label: colors[2], color: colors[0] },
+        { label: colors[1].label, color: colors[0].color },
+        { label: colors[1].label, color: colors[1].color },
+        { label: colors[1].label, color: colors[2].color },
+        { label: colors[2].label, color: colors[3].color },
+        { label: colors[2].label, color: colors[4].color },
+        { label: colors[2].label, color: colors[0].color },
       ]),
-      question: 'Select the color that **is repeated**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that **is repeated**',
+        en: 'Select the color that **is repeated**',
+        es: 'Elige el color que está **repetido**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[1], isCorrect: false },
-        { label: colors[2], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[1].label, isCorrect: false },
+        { label: colors[2].label, isCorrect: false },
       ])
     }
   }
@@ -537,22 +766,30 @@ const getPracticeLevelData = (level) => {
     return {
       level: 27,
       words: randomizeOrder([
-        { label: colors[1], color: colors[0] },
-        { label: colors[1], color: colors[1] },
-        { label: colors[2], color: colors[2] },
-        { label: colors[3], color: colors[3] },
-        { label: colors[4], color: colors[4] },
-        { label: colors[5], color: colors[2] },
-        { label: colors[6], color: colors[3] },
-        { label: colors[7], color: colors[4] },
+        { label: colors[1].label, color: colors[0].color },
+        { label: colors[1].label, color: colors[1].color },
+        { label: colors[2].label, color: colors[2].color },
+        { label: colors[3].label, color: colors[3].color },
+        { label: colors[4].label, color: colors[4].color },
+        { label: colors[5].label, color: colors[2].color },
+        { label: colors[6].label, color: colors[3].color },
+        { label: colors[7].label, color: colors[4].color },
       ]),
-      question: 'Select the **visible** color',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the **visible** color',
+        en: 'Select the **visible** color',
+        es: 'Elige el color **visible**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[5], isCorrect: false },
-        { label: colors[6], isCorrect: false },
-        { label: colors[7], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[5].label, isCorrect: false },
+        { label: colors[6].label, isCorrect: false },
+        { label: colors[7].label, isCorrect: false },
       ])
     }
   }
@@ -562,24 +799,32 @@ const getPracticeLevelData = (level) => {
     return {
       level: 28,
       words: randomizeOrder([
-        { label: colors[0], color: colors[1] },
-        { label: colors[1], color: colors[2] },
-        { label: colors[2], color: colors[3] },
-        { label: colors[3], color: colors[4] },
-        { label: colors[4], color: colors[5] },
-        { label: colors[5], color: colors[7] },
-        { label: colors[6], color: colors[1] },
-        { label: colors[7], color: colors[2] },
-        { label: colors[0], color: colors[3] },
-        { label: colors[0], color: colors[4] },
+        { label: colors[0].label, color: colors[1].color },
+        { label: colors[1].label, color: colors[2].color },
+        { label: colors[2].label, color: colors[3].color },
+        { label: colors[3].label, color: colors[4].color },
+        { label: colors[4].label, color: colors[5].color },
+        { label: colors[5].label, color: colors[7].color },
+        { label: colors[6].label, color: colors[1].color },
+        { label: colors[7].label, color: colors[2].color },
+        { label: colors[0].label, color: colors[3].color },
+        { label: colors[0].label, color: colors[4].color },
       ]),
-      question: 'Select the color that is **not visible**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that is **not visible**',
+        en: 'Select the color that is **not visible**',
+        es: 'Elige el color que **no aparece**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[5], isCorrect: false },
-        { label: colors[6], isCorrect: false },
-        { label: colors[7], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[5].label, isCorrect: false },
+        { label: colors[6].label, isCorrect: false },
+        { label: colors[7].label, isCorrect: false },
       ])
     }
   }
@@ -589,23 +834,31 @@ const getPracticeLevelData = (level) => {
     return {
       level: 29,
       words: randomizeOrder([
-        { label: colors[1], color: colors[0] },
-        { label: colors[2], color: colors[0] },
-        { label: colors[1], color: colors[1] },
-        { label: colors[3], color: colors[2] },
-        { label: colors[5], color: colors[3] },
-        { label: colors[6], color: colors[4] },
-        { label: colors[7], color: colors[5] },
-        { label: colors[2], color: colors[6] },
-        { label: colors[4], color: colors[7] },
+        { label: colors[1].label, color: colors[0].color },
+        { label: colors[2].label, color: colors[0].color },
+        { label: colors[1].label, color: colors[1].color },
+        { label: colors[3].label, color: colors[2].color },
+        { label: colors[5].label, color: colors[3].color },
+        { label: colors[6].label, color: colors[4].color },
+        { label: colors[7].label, color: colors[5].color },
+        { label: colors[2].label, color: colors[6].color },
+        { label: colors[4].label, color: colors[7].color },
       ]),
-      question: 'Select the color that **is repeated**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that **is repeated**',
+        en: 'Select the color that **is repeated**',
+        es: 'Elige el color que está **repetido**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[1], isCorrect: false },
-        { label: colors[2], isCorrect: false },
-        { label: colors[3], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[1].label, isCorrect: false },
+        { label: colors[2].label, isCorrect: false },
+        { label: colors[3].label, isCorrect: false },
       ])
     }
   }
@@ -615,23 +868,31 @@ const getPracticeLevelData = (level) => {
     return {
       level: 30,
       words: randomizeOrder([
-        { label: colors[0], color: colors[0] },
-        { label: colors[1], color: colors[0] },
-        { label: colors[2], color: colors[1] },
-        { label: colors[3], color: colors[2] },
-        { label: colors[4], color: colors[3] },
-        { label: colors[5], color: colors[4] },
-        { label: colors[6], color: colors[5] },
-        { label: colors[7], color: colors[6] },
-        { label: colors[0], color: colors[7] },
+        { label: colors[0].label, color: colors[0].color },
+        { label: colors[1].label, color: colors[0].color },
+        { label: colors[2].label, color: colors[1].color },
+        { label: colors[3].label, color: colors[2].color },
+        { label: colors[4].label, color: colors[3].color },
+        { label: colors[5].label, color: colors[4].color },
+        { label: colors[6].label, color: colors[5].color },
+        { label: colors[7].label, color: colors[6].color },
+        { label: colors[0].label, color: colors[7].color },
       ]),
-      question: 'Select the color that **matches its word**',
-      hint: 'Focus on the colors and the words!',
+      question: {
+        default: 'Select the color that **matches its word**',
+        en: 'Select the color that **matches its word**',
+        es: 'Elige la palabra que **coincide** con su color',
+      },
+      hint: {
+        default: 'Focus on the colors and the words!',
+        en: 'Focus on the colors and the words!',
+        es: '¡Tienes que fijarte en los colores y las palabras!',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[1], isCorrect: false },
-        { label: colors[2], isCorrect: false },
-        { label: colors[3], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[1].label, isCorrect: false },
+        { label: colors[2].label, isCorrect: false },
+        { label: colors[3].label, isCorrect: false },
       ])
     }
   }
@@ -643,21 +904,29 @@ const getQuickLevelData = (level) => {
     return {
       level: 1,
       words: randomizeOrder([
-        { label: colors[6], color: colors[0] },
-        { label: colors[2], color: colors[1] },
-        { label: colors[3], color: colors[2] },
-        { label: colors[4], color: colors[3] },
-        { label: colors[5], color: colors[4] },
-        { label: colors[6], color: colors[2] },
-        { label: colors[5], color: colors[3] },
-        { label: colors[4], color: colors[4] },
+        { label: colors[6].label, color: colors[0].color },
+        { label: colors[2].label, color: colors[1].color },
+        { label: colors[3].label, color: colors[2].color },
+        { label: colors[4].label, color: colors[3].color },
+        { label: colors[5].label, color: colors[4].color },
+        { label: colors[6].label, color: colors[2].color },
+        { label: colors[5].label, color: colors[3].color },
+        { label: colors[4].label, color: colors[4].color },
       ]),
-      question: 'Select the **visible** color',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the **visible** color',
+        en: 'Select the **visible** color',
+        es: 'Elige el color **visible**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[5], isCorrect: false },
-        { label: colors[6], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[5].label, isCorrect: false },
+        { label: colors[6].label, isCorrect: false },
       ])
     }
   }
@@ -666,26 +935,34 @@ const getQuickLevelData = (level) => {
     return {
       level: 2,
       words: randomizeOrder([
-        { label: colors[0], color: colors[0] },
-        { label: colors[1], color: colors[0] },
-        { label: colors[2], color: colors[1] },
-        { label: colors[3], color: colors[2] },
-        { label: colors[4], color: colors[3] },
-        { label: colors[5], color: colors[4] },
-        { label: colors[6], color: colors[5] },
-        { label: colors[7], color: colors[6] },
-        { label: colors[0], color: colors[7] },
-        { label: colors[1], color: colors[6] },
-        { label: colors[2], color: colors[5] },
-        { label: colors[3], color: colors[4] },
+        { label: colors[0].label, color: colors[0].color },
+        { label: colors[1].label, color: colors[0].color },
+        { label: colors[2].label, color: colors[1].color },
+        { label: colors[3].label, color: colors[2].color },
+        { label: colors[4].label, color: colors[3].color },
+        { label: colors[5].label, color: colors[4].color },
+        { label: colors[6].label, color: colors[5].color },
+        { label: colors[7].label, color: colors[6].color },
+        { label: colors[0].label, color: colors[7].color },
+        { label: colors[1].label, color: colors[6].color },
+        { label: colors[2].label, color: colors[5].color },
+        { label: colors[3].label, color: colors[4].color },
       ]),
-      question: 'Select the color that **matches its word**',
-      hint: 'Focus on the colors and the words!',
+      question: {
+        default: 'Select the color that **matches its word**',
+        en: 'Select the color that **matches its word**',
+        es: 'Elige la palabra que **coincide** con su color',
+      },
+      hint: {
+        default: 'Focus on the colors and the words!',
+        en: 'Focus on the colors and the words!',
+        es: '¡Tienes que fijarte en los colores y las palabras!',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[1], isCorrect: false },
-        { label: colors[2], isCorrect: false },
-        { label: colors[3], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[1].label, isCorrect: false },
+        { label: colors[2].label, isCorrect: false },
+        { label: colors[3].label, isCorrect: false },
       ])
     }
   }
@@ -694,23 +971,31 @@ const getQuickLevelData = (level) => {
     return {
       level: 3,
       words: randomizeOrder([
-        { label: colors[1], color: colors[0] },
-        { label: colors[2], color: colors[0] },
-        { label: colors[3], color: colors[1] },
-        { label: colors[4], color: colors[2] },
-        { label: colors[5], color: colors[3] },
-        { label: colors[6], color: colors[4] },
-        { label: colors[1], color: colors[5] },
-        { label: colors[2], color: colors[6] },
-        { label: colors[3], color: colors[7] },
+        { label: colors[1].label, color: colors[0].color },
+        { label: colors[2].label, color: colors[0].color },
+        { label: colors[3].label, color: colors[1].color },
+        { label: colors[4].label, color: colors[2].color },
+        { label: colors[5].label, color: colors[3].color },
+        { label: colors[6].label, color: colors[4].color },
+        { label: colors[1].label, color: colors[5].color },
+        { label: colors[2].label, color: colors[6].color },
+        { label: colors[3].label, color: colors[7].color },
       ]),
-      question: 'Select the color that **is repeated**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that **is repeated**',
+        en: 'Select the color that **is repeated**',
+        es: 'Elige el color que está **repetido**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[1], isCorrect: false },
-        { label: colors[2], isCorrect: false },
-        { label: colors[3], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[1].label, isCorrect: false },
+        { label: colors[2].label, isCorrect: false },
+        { label: colors[3].label, isCorrect: false },
       ])
     }
   }
@@ -719,24 +1004,32 @@ const getQuickLevelData = (level) => {
     return {
       level: 4,
       words: randomizeOrder([
-        { label: colors[0], color: colors[1] },
-        { label: colors[1], color: colors[2] },
-        { label: colors[2], color: colors[3] },
-        { label: colors[3], color: colors[4] },
-        { label: colors[4], color: colors[5] },
-        { label: colors[5], color: colors[6] },
-        { label: colors[6], color: colors[7] },
-        { label: colors[7], color: colors[6] },
-        { label: colors[0], color: colors[5] },
-        { label: colors[4], color: colors[4] },
+        { label: colors[0].label, color: colors[1].color },
+        { label: colors[1].label, color: colors[2].color },
+        { label: colors[2].label, color: colors[3].color },
+        { label: colors[3].label, color: colors[4].color },
+        { label: colors[4].label, color: colors[5].color },
+        { label: colors[5].label, color: colors[6].color },
+        { label: colors[6].label, color: colors[7].color },
+        { label: colors[7].label, color: colors[6].color },
+        { label: colors[0].label, color: colors[5].color },
+        { label: colors[4].label, color: colors[4].color },
       ]),
-      question: 'Select the color that is **not visible**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that is **not visible**',
+        en: 'Select the color that is **not visible**',
+        es: 'Elige el color que **no aparece**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[5], isCorrect: false },
-        { label: colors[6], isCorrect: false },
-        { label: colors[7], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[5].label, isCorrect: false },
+        { label: colors[6].label, isCorrect: false },
+        { label: colors[7].label, isCorrect: false },
       ])
     }
   }
@@ -745,23 +1038,31 @@ const getQuickLevelData = (level) => {
     return {
       level: 5,
       words: randomizeOrder([
-        { label: colors[7], color: colors[0] },
-        { label: colors[6], color: colors[1] },
-        { label: colors[5], color: colors[2] },
-        { label: colors[4], color: colors[3] },
-        { label: colors[3], color: colors[4] },
-        { label: colors[2], color: colors[5] },
-        { label: colors[1], color: colors[4] },
-        { label: colors[0], color: colors[3] },
-        { label: colors[7], color: colors[2] },
-        { label: colors[6], color: colors[1] },
+        { label: colors[7].label, color: colors[0].color },
+        { label: colors[6].label, color: colors[1].color },
+        { label: colors[5].label, color: colors[2].color },
+        { label: colors[4].label, color: colors[3].color },
+        { label: colors[3].label, color: colors[4].color },
+        { label: colors[2].label, color: colors[5].color },
+        { label: colors[1].label, color: colors[4].color },
+        { label: colors[0].label, color: colors[3].color },
+        { label: colors[7].label, color: colors[2].color },
+        { label: colors[6].label, color: colors[1].color },
       ]),
-      question: 'Select the **visible** color',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the **visible** color',
+        en: 'Select the **visible** color',
+        es: 'Elige el color **visible**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[6], isCorrect: false },
-        { label: colors[7], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[6].label, isCorrect: false },
+        { label: colors[7].label, isCorrect: false },
       ])
     }
   }
@@ -770,26 +1071,34 @@ const getQuickLevelData = (level) => {
     return {
       level: 6,
       words: randomizeOrder([
-        { label: colors[0], color: colors[0] },
-        { label: colors[1], color: colors[0] },
-        { label: colors[2], color: colors[1] },
-        { label: colors[3], color: colors[2] },
-        { label: colors[4], color: colors[3] },
-        { label: colors[5], color: colors[4] },
-        { label: colors[6], color: colors[5] },
-        { label: colors[7], color: colors[6] },
-        { label: colors[6], color: colors[7] },
-        { label: colors[5], color: colors[6] },
-        { label: colors[4], color: colors[5] },
-        { label: colors[3], color: colors[4] },
+        { label: colors[0].label, color: colors[0].color },
+        { label: colors[1].label, color: colors[0].color },
+        { label: colors[2].label, color: colors[1].color },
+        { label: colors[3].label, color: colors[2].color },
+        { label: colors[4].label, color: colors[3].color },
+        { label: colors[5].label, color: colors[4].color },
+        { label: colors[6].label, color: colors[5].color },
+        { label: colors[7].label, color: colors[6].color },
+        { label: colors[6].label, color: colors[7].color },
+        { label: colors[5].label, color: colors[6].color },
+        { label: colors[4].label, color: colors[5].color },
+        { label: colors[3].label, color: colors[4].color },
       ]),
-      question: 'Select the color that **matches its word**',
-      hint: 'Focus on the colors and the words!',
+      question: {
+        default: 'Select the color that **matches its word**',
+        en: 'Select the color that **matches its word**',
+        es: 'Elige la palabra que **coincide** con su color',
+      },
+      hint: {
+        default: 'Focus on the colors and the words!',
+        en: 'Focus on the colors and the words!',
+        es: '¡Tienes que fijarte en los colores y las palabras!',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[1], isCorrect: false },
-        { label: colors[2], isCorrect: false },
-        { label: colors[3], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[1].label, isCorrect: false },
+        { label: colors[2].label, isCorrect: false },
+        { label: colors[3].label, isCorrect: false },
       ])
     }
   }
@@ -798,23 +1107,31 @@ const getQuickLevelData = (level) => {
     return {
       level: 7,
       words: randomizeOrder([
-        { label: colors[1], color: colors[0] },
-        { label: colors[2], color: colors[0] },
-        { label: colors[3], color: colors[1] },
-        { label: colors[1], color: colors[2] },
-        { label: colors[2], color: colors[3] },
-        { label: colors[3], color: colors[4] },
-        { label: colors[1], color: colors[5] },
-        { label: colors[2], color: colors[6] },
-        { label: colors[3], color: colors[7] },
+        { label: colors[1].label, color: colors[0].color },
+        { label: colors[2].label, color: colors[0].color },
+        { label: colors[3].label, color: colors[1].color },
+        { label: colors[1].label, color: colors[2].color },
+        { label: colors[2].label, color: colors[3].color },
+        { label: colors[3].label, color: colors[4].color },
+        { label: colors[1].label, color: colors[5].color },
+        { label: colors[2].label, color: colors[6].color },
+        { label: colors[3].label, color: colors[7].color },
       ]),
-      question: 'Select the color that **is repeated**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that **is repeated**',
+        en: 'Select the color that **is repeated**',
+        es: 'Elige el color que está **repetido**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[1], isCorrect: false },
-        { label: colors[2], isCorrect: false },
-        { label: colors[3], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[1].label, isCorrect: false },
+        { label: colors[2].label, isCorrect: false },
+        { label: colors[3].label, isCorrect: false },
       ])
     }
   }
@@ -823,24 +1140,32 @@ const getQuickLevelData = (level) => {
     return {
       level: 8,
       words: randomizeOrder([
-        { label: colors[0], color: colors[1] },
-        { label: colors[1], color: colors[2] },
-        { label: colors[2], color: colors[3] },
-        { label: colors[3], color: colors[4] },
-        { label: colors[4], color: colors[5] },
-        { label: colors[0], color: colors[6] },
-        { label: colors[1], color: colors[7] },
-        { label: colors[2], color: colors[6] },
-        { label: colors[3], color: colors[5] },
-        { label: colors[4], color: colors[4] },
+        { label: colors[0].label, color: colors[1].color },
+        { label: colors[1].label, color: colors[2].color },
+        { label: colors[2].label, color: colors[3].color },
+        { label: colors[3].label, color: colors[4].color },
+        { label: colors[4].label, color: colors[5].color },
+        { label: colors[0].label, color: colors[6].color },
+        { label: colors[1].label, color: colors[7].color },
+        { label: colors[2].label, color: colors[6].color },
+        { label: colors[3].label, color: colors[5].color },
+        { label: colors[4].label, color: colors[4].color },
       ]),
-      question: 'Select the color that is **not visible**',
-      hint: 'Focus on the colors - not the words',
+      question: {
+        default: 'Select the color that is **not visible**',
+        en: 'Select the color that is **not visible**',
+        es: 'Elige el color que **no aparece**',
+      },
+      hint: {
+        default: 'Focus on the colors - not the words',
+        en: 'Focus on the colors - not the words',
+        es: 'Fíjate en los colores - no en las palabras',
+      },
       options: randomizeOrder([
-        { label: colors[0], isCorrect: true },
-        { label: colors[5], isCorrect: false },
-        { label: colors[6], isCorrect: false },
-        { label: colors[7], isCorrect: false },
+        { label: colors[0].label, isCorrect: true },
+        { label: colors[5].label, isCorrect: false },
+        { label: colors[6].label, isCorrect: false },
+        { label: colors[7].label, isCorrect: false },
       ])
     }
   }

@@ -1,12 +1,43 @@
 import { usePracticeGameInfo, useQuickGameInfo } from "../../context/GameState"
+import { useLang } from "../../context/Language"
 import { useTransitionView } from "../../hooks/useTransitionView"
-import { COLORS } from "../../utils/levels"
+import { getColors } from "../../utils/levels"
 import { clearGame } from "../../utils/storage"
+import content from './Home.lang.json'
 import css from './Home.module.css'
+
+const HomeTitle = ({ prefix, title, suffix })=> {
+  const letters = title.split('')
+  return (
+    <h1 className={css.title}>
+      {prefix}{' '}
+      {letters.map((letter, i)=> (
+        <span key={i} className={css.titleLetter}>{letter}</span>
+      ))}
+      {' '}{suffix}
+    </h1>
+  )
+}
+
+const HomeSubtitle = ({ subtitle })=> (
+  <p className={css.intro}>
+    🧠{' '}<code>{subtitle}</code>
+  </p>
+)
+
+const HomeButton = ({ label, onClick })=> (
+  <button className={css.startButton} onClick={onClick}>
+    <code>{label}</code>
+  </button>
+)
 
 const Home = ()=> {
 
   const transition = useTransitionView()
+
+  const { lang } = useLang()
+
+  const contentLang = content[lang]
 
   const { resetPractice } = usePracticeGameInfo()
   const { resetQuickGame } = useQuickGameInfo()
@@ -31,39 +62,18 @@ const Home = ()=> {
 
   return (
     <div className={css.main}>
-      <h1 className={css.title}>
-        The{' '}
-        <span className={css.titleLetter}>c</span>
-        <span className={css.titleLetter}>o</span>
-        <span className={css.titleLetter}>l</span>
-        <span className={css.titleLetter}>o</span>
-        <span className={css.titleLetter}>r</span>
-        <span className={css.titleLetter}>f</span>
-        <span className={css.titleLetter}>u</span>
-        <span className={css.titleLetter}>l</span>
-        {' '}game
-      </h1>
-      <p className={css.intro}>
-        🧠{' '}<code>A game designed to mess with your head</code>
-      </p>
+      <HomeTitle prefix={contentLang.prefix} title={contentLang.title} suffix={contentLang.suffix} />
+      <HomeSubtitle subtitle={contentLang.subtitle} />
       <div className={css.guide}>
-        {COLORS.map(color=> (
-          <div 
-            key={color}
-            className={css.guideColor} 
-            data-bg={color}
-          >
-            <p className={css.colorName}>{color}</p>
+        {getColors().map(color=> (
+          <div key={color.color} className={css.guideColor} data-bg={color.color}>
+            <p className={css.colorName}>{color.label[lang]}</p>
           </div>
         ))}
       </div>
       <div className={css.buttons}>
-        <button className={css.startButton} onClick={handleQuickGame}>
-          <code>Quick game</code>
-        </button>
-        <button className={css.startButton} onClick={handlePractice}>
-          <code>Practice</code>
-        </button>
+        <HomeButton label={contentLang.practice} onClick={handlePractice} />
+        <HomeButton label={contentLang.game} onClick={handleQuickGame} />
       </div>
     </div>
   )

@@ -19,3 +19,4 @@ However, if you play a `Quick game` you will also have the option to share it.
 
 *As of today (Q1 - 2023) this feature has minimal browser support.* 
 
+**Update**: *As of today (Q1 - 2024) this feature has better browser support on Chromium, nothing in Mozilla / Safari.*

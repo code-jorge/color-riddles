@@ -1,0 +1,16 @@
+.flag {
+  height: 22px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.flag[data-active="false"] {
+  opacity: .5;
+}
+
+@media(max-width: 768px) {
+  .flag {
+    height: 16px;
+    padding: 0 8px;
+  }
+}

@@ -2,11 +2,14 @@ import { Outlet, useParams } from "react-router-dom"
 import { usePracticeGameInfo, useQuickGameInfo } from "../context/GameState"
 import { useTransitionView } from "../hooks/useTransitionView"
 import { COLORS, PRACTICE_LEVELS, QUICK_GAME_LEVELS } from "../utils/levels"
+import Flag from "./Flag"
+import { useLang } from "../context/Language"
 import css from './Layout.module.css'
 
 const Layout = ()=> {
 
   const transition = useTransitionView()
+  const { lang, setLang } = useLang()
 
   const { type, level=0 } = useParams()
 
@@ -38,7 +41,9 @@ const Layout = ()=> {
             />
           ))}
         </button>
-        <div className={css.lives}>
+        <div className={css.lang}>
+          <Flag language="en" isActive={lang === 'en'} onClick={()=> setLang('en')} />
+          <Flag language="es" isActive={lang === 'es'} onClick={()=> setLang('es')} />
         </div>
       </header>
       <div className={css.progress}>
