@@ -17,6 +17,8 @@ However, if you play a `Quick game` you will also have the option to share it.
 
 - It uses the new [View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/) to animate the transitions between pages. This is a progressive enhancement, and will not break older browsers.
 
-*As of today (Q1 - 2023) this feature has minimal browser support.* 
-
-**Update**: *As of today (Q1 - 2024) this feature has better browser support on Chromium, nothing in Mozilla / Safari.*
+| Date       | Status                                                  |
+|------------|---------------------------------------------------------|
+| Q1 - 2023  | Minimal browser support                                 |
+| Q1 - 2024  | Better in Chromium, nothing in Mozilla / Safari         |
+| Q4 - 2025  | Full Chromium & Safari support, experimental in Mozilla |
